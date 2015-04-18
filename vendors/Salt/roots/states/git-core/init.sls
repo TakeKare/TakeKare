@@ -1,2 +1,0 @@
-git-core:
-  pkg.installed
