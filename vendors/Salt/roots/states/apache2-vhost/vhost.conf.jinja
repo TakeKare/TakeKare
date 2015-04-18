@@ -1,0 +1,13 @@
+<VirtualHost *:80>
+    ServerName {{pillar['project']['domain']}}
+    ServerAlias www.{{pillar['project']['domain']}} dev.{{pillar['project']['domain']}}
+    DocumentRoot /var/www/{{pillar['project']['domain']}}/app/webroot
+
+    <Directory "/var/www/{{pillar['project']['domain']}}/app/webroot/">
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+
+</VirtualHost>

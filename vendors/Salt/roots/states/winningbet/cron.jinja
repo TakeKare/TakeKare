@@ -1,0 +1,2 @@
+*/10 * * * * www-data php /var/www/{{ pillar['project']['domain'] }}/app/Console/cake.php grab all > /dev/null
+*/30 * * * * www-data php /var/www/{{ pillar['project']['domain'] }}/app/Console/cake.php grab results > /dev/null
