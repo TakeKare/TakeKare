@@ -55,7 +55,49 @@
     <div class="app-content">
         <div id="map"></div>
     </div>
+</div>
 
+<div class="app-page" data-page="chat">
+    <div class="app-topbar">
+        <div class="app-title"><?= __('Chat') ?></div>
+    </div>
+    <?= $this->element('tabs', ['active' => 'chat']) ?>
+    <div class="app-content">
+        <ul class="app-list chat">
+            <li>
+                <div class="clear clearfix">
+                    <span class="author">Team Alpha</span>
+                    <span class="time"><i class="fa fa-clock-o fa-fw"></i> 15 mins ago</span>
+                </div>
+                <p class="clear clearfix">Alright, I'll come on over</p>
+            </li>
+            <li>
+                <div class="clear clearfix">
+                    <span class="author">Team Beta</span>
+                    <span class="time"><i class="fa fa-clock-o fa-fw"></i> 14 mins ago</span>
+                </div>
+                <p class="clear clearfix">Need a little assistance down Oxford St</p>
+            </li>
+            <li>
+                <div class="clear clearfix">
+                    <span class="author">Team Alpha</span>
+                    <span class="time"><i class="fa fa-clock-o fa-fw"></i> 13 mins ago</span>
+                </div>
+                <p class="clear clearfix">There is a big event down by Liverpool St, we might<br />need some more people here.</p>
+            </li>
+            <li>
+                <div class="clear clearfix">
+                    <span class="author">Team Omega</span>
+                    <span class="time"><i class="fa fa-clock-o fa-fw"></i> 12 mins ago</span>
+                </div>
+                <p class="clear clearfix">Hope everyone is having a safe night!<br />Any large events on?</p>
+            </li>
+        </ul>
+        <div class="footer chat-footer">
+            <input type="text" class="app-input" />
+            <div class="app-button">Send</div>
+        </div>
+    </div>
 </div>
 
 <?=$this->Form->end(); ?>
