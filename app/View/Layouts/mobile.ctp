@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="//cdn.kik.com/app/3.0.0/app.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css"/>
     <script src="//code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <?= $this->Html->script('mobile') ?>
     <?= $this->Html->css('mobile') ?>
 </head>

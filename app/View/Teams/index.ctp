@@ -11,7 +11,7 @@
         <tr>
             <td><?=h($d[$modelName]['title']); ?></td>
             <td><?=h($d['Area']['title']); ?></td>
-            <td><?=h($d['Leader']['title']); ?></td>
+            <td><?=h($d['Leader']['name']); ?></td>
             <td class="actions">
                 <?=$this->Html->link(__('Edit'), array('action' => 'save', $d[$modelName]['id']))?>
                 <?=$this->Form->postLink(

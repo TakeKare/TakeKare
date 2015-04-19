@@ -4,6 +4,8 @@ App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
 class User extends AppModel
 {
 
+    public $belongsTo = array('Team');
+
     public $displayFields = array('id', 'name');
 
     public $fieldList = array(

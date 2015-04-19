@@ -16,12 +16,14 @@ class IncidentsController extends MobileAppController
 
     public function index()
     {
+        $teams = $this->Team->find('all');
+
         $team = $this->Team->findById($this->Auth->user('team_id'));
         $incidents = $this->Incident->find('all');
         $referrals = $this->Referral->find('all');
         $supportTypes = $this->SupportType->find('all', ['conditions' => ['SupportType.parent_id' => null]]);
 
-        $this->set(compact('incidents', 'referrals', 'supportTypes', 'team'));
+        $this->set(compact('incidents', 'referrals', 'supportTypes', 'team', 'teams'));
     }
 
 
