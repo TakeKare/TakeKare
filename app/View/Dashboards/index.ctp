@@ -121,30 +121,6 @@ var incidents = <?= json_encode($incidents) ?>;
                         <!-- /.panel-body -->
                     </div>
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Incident Type
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Export</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div "panel-body" style="margin:0px;">
-                            <div id="incident-graph" style="height:350px;"></div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-
-
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">

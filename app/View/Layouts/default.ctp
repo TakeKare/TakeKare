@@ -45,7 +45,10 @@
                 <a href="<?=Router::url(['controller' => 'incidents', 'action' => 'index'])?>"><i class="fa fa-exclamation-circle fa-fw"></i> <?=__('Incidents')?></a>
             </li>
             <li>
-                <a href="<?=Router::url(['controller' => 'dashboards', 'action' => 'index'])?>"><i class="fa fa-bar-chart fa-fw"></i> <?=__('Dashboards')?></a>
+                <a href="<?=Router::url(['controller' => 'dashboards', 'action' => 'index'])?>"><i class="fa fa-dashboard fa-fw"></i> <?=__('Overview')?></a>
+            </li>
+            <li>
+                <a href="<?=Router::url(['controller' => 'dashboards', 'action' => 'reports'])?>"><i class="fa fa-bar-chart fa-fw"></i> <?=__(' Reporting')?></a>
             </li>
             <?php /*
             <li>
