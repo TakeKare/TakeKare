@@ -145,7 +145,28 @@ var refData = {
   ]
 };
 
+console.log(incidentData);
 $(function() {
+    var incidentData = {
+        "type": "FeatureCollection",
+        "features": []
+    };
+    var i = 0;
+    for (i in incidents) {
+        incidentData['features'][i] = {
+            "type": "Feature",
+            "properties": {
+                "type": "Incident"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    parseFloat(incidents[i]['Incident']['lng']),
+                    parseFloat(incidents[i]['Incident']['lat'])
+                ]
+            }
+        };
+    }
 
     var map = L.map('live-map').setView([-33.869, 151.2094], 14);
     L.tileLayer('http://{s}.tiles.mapbox.com/v3/jt987.lp09bdfp/{z}/{x}/{y}.png', {
@@ -172,17 +193,17 @@ $(function() {
     L.geoJson(refData,{
       pointToLayer: function(feature, latlng) {
         return L.marker(latlng, {icon: ref});
-      } 
+      }
     }).addTo(map);
     L.geoJson(incidentData,{
       pointToLayer: function(feature, latlng) {
         return L.marker(latlng, {icon: incident});
-      } 
+      }
     }).addTo(map);
     L.geoJson(userData,{
       pointToLayer: function(feature, latlng) {
         return L.marker(latlng, {icon: user});
-      } 
+      }
     }).addTo(map);
 map.scrollWheelZoom.disable();
 

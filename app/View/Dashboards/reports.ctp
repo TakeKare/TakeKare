@@ -15,7 +15,7 @@ var incidents = <?= json_encode($incidents) ?>;
                                     <img src="../img/white128_bottle.png" style="width:80px;">
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">232</div>
+                                    <div class="huge"><?= $countWater ?></div>
                                     <div>Water Bottles</div>
                                 </div>
                             </div>
@@ -30,7 +30,7 @@ var incidents = <?= json_encode($incidents) ?>;
                                     <img src="../img/white128_thongs.png" style="width:80px;">
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">150</div>
+                                    <div class="huge"><?= $countThongs ?></div>
                                     <div>Thongs</div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@ var incidents = <?= json_encode($incidents) ?>;
                                     <img src="../img/white128_bag.png" style="width:80px;">
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">17</div>
+                                    <div class="huge"><?= $countVomitBags ?></div>
                                     <div>Vomit Bags</div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ var incidents = <?= json_encode($incidents) ?>;
                                     <img src="../img/white128_ChupaChup.png" style="margin:7px;width:60px;">
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
+                                    <div class="huge"><?= $countChupaChups ?></div>
                                     <div>First Aid Assists</div>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@ var incidents = <?= json_encode($incidents) ?>;
                     </div>
                 </div>
             </div>
- 
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Incident Type

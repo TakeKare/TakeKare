@@ -42,8 +42,20 @@ $(function () {
 });
 
 $(function () {
-    $('#age-gender').highcharts({
 
+    var males = [0, 0, 0, 0];
+    var females = [0, 0, 0, 0];
+
+    var i =0;
+    for (i in incidents) {
+        males[parseInt(incidents[i]['Incident']['age']) - 1] += parseInt(incidents[i]['Incident']['males_number']);
+        females[parseInt(incidents[i]['Incident']['age']) - 1] += parseInt(incidents[i]['Incident']['females_number']);
+    }
+    console.log(incidents);
+    console.log(males);
+    console.log(females);
+
+    $('#age-gender').highcharts({
         chart: {
             type: 'column'
         },
@@ -51,7 +63,7 @@ $(function () {
         title: {
             text: 'People Assisted by Age and Gender'
         },
-        
+
         subtitle: {
             text: 'Month of April'
         },
@@ -76,11 +88,13 @@ $(function () {
 
         series: [{
             name: 'Male',
-            data: [50, 30, 40, 42, 24],
+            //data: [50, 30, 40, 42, 24],
+            data: males,
             stack: 'male'
         }, {
             name: 'Female',
-            data: [35, 44, 45, 24, 55],
+            //data: [35, 44, 45, 24, 55],
+            data: females,
 	    color: '#d9534f',
             stack: 'female'
         }]

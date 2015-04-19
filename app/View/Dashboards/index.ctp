@@ -11,7 +11,7 @@ var incidents = <?= json_encode($incidents) ?>;
                                     <i class="fa fa-exclamation-circle fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge"><?= $countTotal ?></div>
                                     <div>Total Incidents</div>
                                 </div>
                             </div>
@@ -26,7 +26,7 @@ var incidents = <?= json_encode($incidents) ?>;
                                     <i class="fa fa-user fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge"><?= $countPeople ?></div>
                                     <div>People Helped</div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@ var incidents = <?= json_encode($incidents) ?>;
                                     <i class="fa fa-ambulance fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">17</div>
+                                    <div class="huge"><?= $countProfessionals ?></div>
                                     <div>Referals</div>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@ var incidents = <?= json_encode($incidents) ?>;
                                     <i class="fa fa-heart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
+                                    <div class="huge"><?= $countFirstAid ?></div>
                                     <div>First Aid Assists</div>
                                 </div>
                             </div>
@@ -67,9 +67,6 @@ var incidents = <?= json_encode($incidents) ?>;
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
-
-
-
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Live Map
@@ -101,6 +98,29 @@ var incidents = <?= json_encode($incidents) ?>;
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <ul class="timeline">
+                            <?php
+                            $icons = [
+                                '<div class="timeline-badge"><i class="fa fa-user"></i></div>',
+                                '<div class="timeline-badge warning"><i class="fa fa-ambulance"></i></div>',
+                                '<div class="timeline-badge danger"><i class="fa fa-heart"></i></div>',
+                            ];
+                            ?>
+                            <?php foreach ($incidents as $k => $inc): ?>
+                                <li<?= (($k % 2) ? '' : ' class="timeline-inverted"') ?>>
+                                    <?= $icons[rand(0, count($icons) - 1)] ?>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> <?= $this->Time->timeAgoInWords($inc['Incident']['created']) ?></small>
+                                            </p>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p><?= $inc['Incident']['comment'] ?></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <?php if ($k > 3) break; ?>
+                            <?php endforeach; ?>>
+                                <!--
                                 <li>
                                     <div class="timeline-badge"><i class="fa fa-user"></i>
                                     </div>
@@ -161,6 +181,7 @@ var incidents = <?= json_encode($incidents) ?>;
                                         </div>
                                     </div>
                                 </li>
+                                -->
                             </ul>
                         </div>
                         <!-- /.panel-body -->
