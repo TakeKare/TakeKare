@@ -6,8 +6,6 @@
         <th><?=$this->Paginator->sort('email')?></th>
         <th><?=__('Team')?></th>
         <th><?=$this->Paginator->sort('is_active')?></th>
-        <th><?=$this->Paginator->sort('is_manager')?></th>
-        <th><?=$this->Paginator->sort('is_owner')?></th>
         <th class="actions"><?=__('Actions')?></th>
     </tr>
     <?php foreach ($data as $d): ?>
@@ -16,8 +14,6 @@
             <td><?=h($d[$modelName]['email']); ?></td>
             <td><?=($d[$modelName]['team_id'] ? h($d['Team']['title']) : ''); ?></td>
             <td><?=($d[$modelName]['is_active'] ? __('Yes') : __('No'))?></td>
-            <td><?=($d[$modelName]['is_manager'] ? __('Yes') : __('No'))?></td>
-            <td><?=($d[$modelName]['is_owner'] ? __('Yes') : __('No'))?></td>
             <td class="actions">
                 <?=$this->Html->link(__('Edit'), array('action' => 'save', $d[$modelName]['id']))?>
                 <?=$this->Form->postLink(

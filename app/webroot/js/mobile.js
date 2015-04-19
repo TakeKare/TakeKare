@@ -21,6 +21,48 @@ $(function(){
             });
     });
 
+    App.controller('teams-location', function (page) {
+        var myOptions = {
+            zoom: 15,
+            center: new google.maps.LatLng(-33.8681, 151.2075),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map($('#map', page)[0], myOptions);
+        var markersArray = [];
+
+        var i = 0;
+        for (i in teams) {
+            placeMarker(new google.maps.LatLng(teams[i]['Team']['last_lat'], teams[i]['Team']['last_lng']));
+        }
+
+        google.maps.event.addListener(map, 'click', function(event) {
+            placeMarker(event.latLng, true);
+        });
+        function placeMarker(location, rewriteLocation) {
+            if (typeof(rewriteLocation) != 'undefined' && rewriteLocation) {
+                clearOverlays();
+                $('#IncidentLat').val(location.lat());
+                $('#IncidentLng').val(location.lng());
+            }
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+            markersArray.push(marker);
+            map.setCenter(location);
+
+        }
+
+        function clearOverlays(){
+            if (markersArray){
+                for (i in markersArray){
+                    markersArray[i].setMap(null);
+                }
+            }
+        }
+    });
+
     App.controller('step1', function (page) {
         $(page)
             .find('.back')

@@ -2,6 +2,7 @@
     <div class="app-topbar">
         <div class="app-title"><span class="app-icon"></span> <?= __('Take Kare') ?></div>
     </div>
+    <?= $this->element('tabs') ?>
     <div class="app-content">
         <ul class="app-list">
         <?php foreach ($incidents as $inc): ?>
@@ -46,14 +47,23 @@
     <?= $this->element('step4') ?>
 </div>
 
+<div class="app-page" data-page="teams-location">
+    <div class="app-topbar">
+        <div class="app-title"><?= __('Teams Location') ?></div>
+    </div>
+    <?= $this->element('tabs') ?>
+    <div class="app-content">
+        <div id="map"></div>
+    </div>
+
+</div>
+
 <?=$this->Form->end(); ?>
 
 <script>
+    var teams = <?= json_encode($teams) ?>;
+
     $(function(){
-        //try {
-        //    App.restore();
-        //} catch (err) {
-            App.load('home');
-        //}
+        App.load('home');
     })
 </script>
