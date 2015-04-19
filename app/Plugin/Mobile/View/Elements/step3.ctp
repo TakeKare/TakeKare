@@ -12,7 +12,7 @@
         <?php endforeach; ?>
     </div>
     <div class="block">
-        <?=$this->Form->input('support_type_sub_id', array('label' => false, 'class' => 'app-input', 'options' => [1, 2]))?>
+        <?=$this->Form->input('support_type_sub_id', array('label' => false, 'class' => 'app-input', 'options' => [1 => 'Minor', 2 => 'Major']))?>
     </div>
     <div class="footer">
         <div class="p-1-2">
