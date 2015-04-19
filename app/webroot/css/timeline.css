@@ -178,3 +178,20 @@
         border-left-width: 0;
     }
 }
+
+#new-chat {
+	display: none;
+}
+
+.icon-1 {
+	color: #d9534f
+}
+.icon-2 {
+	color: #285f8f
+}
+.icon-3 {
+	color: #439843
+}
+.icon-4 {
+	color: #d9534f
+}
