@@ -12,7 +12,7 @@ var incidents = <?= json_encode($incidents) ?>;
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-exclamation-circle fa-5x"></i>
+                                    <img src="../img/white128_bottle.png" style="width:80px;">
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">232</div>
@@ -27,7 +27,7 @@ var incidents = <?= json_encode($incidents) ?>;
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-user fa-5x"></i>
+                                    <img src="../img/white128_thongs.png" style="width:80px;">
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">150</div>
@@ -42,7 +42,7 @@ var incidents = <?= json_encode($incidents) ?>;
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-user fa-5x"></i>
+                                    <img src="../img/white128_bag.png" style="width:80px;">
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">17</div>
@@ -57,7 +57,7 @@ var incidents = <?= json_encode($incidents) ?>;
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-heart fa-5x"></i>
+                                    <img src="../img/white128_ChupaChup.png" style="margin:7px;width:60px;">
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">13</div>
