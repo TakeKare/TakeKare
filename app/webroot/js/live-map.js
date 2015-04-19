@@ -1,4 +1,4 @@
-var mapData = {
+var userData = {
   "type": "FeatureCollection",
   "features": [
     {
@@ -28,7 +28,11 @@ var mapData = {
           -33.88110466676628
         ]
       }
-    },
+    }]};
+
+var incidentData = {
+  "type": "FeatureCollection",
+  "features": [
     {
       "type": "Feature",
       "properties": {
@@ -119,20 +123,12 @@ var mapData = {
           -33.86328872999274
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "Incident"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          151.20534896850586,
-          -33.87775555450094
-        ]
-      }
-    },
+    }]};
+
+
+var refData = {
+  "type": "FeatureCollection",
+  "features": [
     {
       "type": "Feature",
       "properties": {
@@ -151,25 +147,95 @@ var mapData = {
 
 $(function() {
 
-    var map = L.map('live-map').setView([-33.8650, 151.2094], 14);
+    var map = L.map('live-map').setView([-33.869, 151.2094], 14);
     L.tileLayer('http://{s}.tiles.mapbox.com/v3/jt987.lp09bdfp/{z}/{x}/{y}.png', {
        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
        maxZoom: 18
        }).addTo(map);
     var safeSpace = L.divIcon({
-      className: 'fa-2x fa-h-square',
+      className: 'fa-2x fa-h-square icon-1',
         iconSize: [20, 20]
     });
-    var help = L.divIcon({
-      className: 'fa-2x fa-heart red-leaf',
+    var incident = L.divIcon({
+      className: 'fa-2x fa-exclamation-circle icon-2',
+        iconSize: [20, 20]
+    });
+    var user = L.divIcon({
+      className: 'fa-2x fa-user icon-3',
+        iconSize: [20, 20]
+    });
+    var ref = L.divIcon({
+      className: 'fa-2x fa-ambulance',
         iconSize: [20, 20]
     });
     L.marker([-33.87406781608232,151.20644330978394] , {icon: safeSpace}).addTo(map);
-    L.geoJson(mapData,{
+    L.geoJson(refData,{
       pointToLayer: function(feature, latlng) {
-        return L.marker(latlng, {icon: help});
+        return L.marker(latlng, {icon: ref});
       } 
     }).addTo(map);
+    L.geoJson(incidentData,{
+      pointToLayer: function(feature, latlng) {
+        return L.marker(latlng, {icon: incident});
+      } 
+    }).addTo(map);
+    L.geoJson(userData,{
+      pointToLayer: function(feature, latlng) {
+        return L.marker(latlng, {icon: user});
+      } 
+    }).addTo(map);
+map.scrollWheelZoom.disable();
 
+    $("#btn-chat").click(function() {
+	$("#new-chat").show();
+	$("#new-chat-message").text($("#btn-input").val());
+    });
+    $('#btn-input').keypress(function (e) {
+    if (e.which == 13) {
+       $('#btn-chat').click();
+    }
+    });
 });
 
+$(function () {
+    $('#incident-graph').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Incident Breakdown'
+        },
+        subtitle: {
+            text: 'Saturday 18th April'
+        },
+        xAxis: {
+            categories: [
+                'De-escalation of Conflict',
+                'Vulnerable to Sexual Assualt',
+                'Vulnerable to Theft',
+                'Vulnerable to Traffic Related Injury'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Incidents'
+            }
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Yesterday',
+            data: [20, 11, 6, 9]
+
+        }, {
+            name: 'Tonight',
+            data: [14, 12, 9, 7]
+        }]
+    });
+});
