@@ -44,6 +44,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     <?php
     echo $this->Html->css('sb-admin');
     echo $this->Html->css('font-awesome.min');
+    echo $this->Html->css('timeline');
     echo $this->Html->css('bootstrap-slider');
     echo $this->Html->css('style');
 
