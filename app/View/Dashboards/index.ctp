@@ -72,7 +72,7 @@ var incidents = <?= json_encode($incidents) ?>;
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Live Map 
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Live Map
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -218,7 +218,7 @@ var incidents = <?= json_encode($incidents) ?>;
                                         <div class="header">
                                             <small class=" text-muted">
                                                 <i class="fa fa-clock-o fa-fw"></i> just now</small>
-                                            <strong class="pull-right primary-font">Andrew</strong>
+                                            <strong class="pull-right primary-font">Team Alpha</strong>
                                         </div>
                                         <p id="new-chat-message"></p>
                                     </div>
@@ -229,7 +229,7 @@ var incidents = <?= json_encode($incidents) ?>;
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
-                                            <strong class="primary-font">Wendy</strong>
+                                            <strong class="primary-font">Team Beta</strong>
                                             <small class="pull-right text-muted">
                                                 <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
                                             </small>
@@ -247,7 +247,7 @@ var incidents = <?= json_encode($incidents) ?>;
                                         <div class="header">
                                             <small class=" text-muted">
                                                 <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
-                                            <strong class="pull-right primary-font">Andrew</strong>
+                                            <strong class="pull-right primary-font">Team Alpha</strong>
                                         </div>
                                         <p>
 Need a little assistance down Oxford St
@@ -260,12 +260,12 @@ Need a little assistance down Oxford St
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
-                                            <strong class="primary-font">Wendy</strong>
+                                            <strong class="primary-font">Team Omega</strong>
                                             <small class="pull-right text-muted">
                                                 <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
                                         </div>
                                         <p>
-                 There is a big event down by Liverpool St, we might need some more people here. 
+                 There is a big event down by Liverpool St, we might need some more people here.
                                         </p>
                                     </div>
                                 </li>

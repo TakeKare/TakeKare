@@ -13,7 +13,7 @@ $config = array(
         'files'        => 'files',
     ),
     'Site' => array(
-        'name' => 'Scannner'
+        'name' => 'Take Kare'
     ),
     'Predictions' => array(
         'success_limit' => 60
