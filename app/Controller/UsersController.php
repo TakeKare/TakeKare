@@ -33,6 +33,9 @@ class UsersController extends BaseController
             }
         }
 
+        $teams = $this->Team->find('list');
+        $this->set(compact('teams'));
+
         parent::save($itemId, $validate, $redirect, $cacheName);
     }
 

@@ -2,6 +2,8 @@
     <fieldset class="col-lg-6">
         <?=$this->Form->listErrors()?>
         <?=$this->Form->hidden('id')?>
+        <?=$this->Form->hidden('lat')?>
+        <?=$this->Form->hidden('lng')?>
         <?=$this->Form->input('area_id', array('label' => __('Area')))?>
         <?=$this->Form->input('team_id', array('label' => __('Team')))?>
         <?=$this->Form->input('males_number', array('label' => __('Males')))?>
@@ -25,7 +27,54 @@
         <?=$this->Form->input('created', array('label' => __('Created'), 'type' => 'text', 'default' => date('Y-m-d H:i:s')))?>
     </fieldset>
     <fieldset class="col-lg-12">
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <div id="map" style="width: 480px; height: 400px; display: inline-block;"></div>
+    </fieldset>
+    <fieldset class="col-lg-12">
         <?=$this->Form->submit(__('Save'))?>
     </fieldset>
 <?=$this->Form->end(); ?>
+
+<script type="text/javascript">
+    // <![CDATA[
+    var myOptions = {
+        zoom: 15,
+        center: new google.maps.LatLng(55.166625, 23.873291),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), myOptions);
+    var markersArray = [];
+
+    <?php if ($data && $data['Incident']['lat'] != 0 && $data['Incident']['lng'] != 0): ?>
+    placeMarker(new google.maps.LatLng(<?php echo $data['Incident']['lat']; ?>, <?php echo $data['Incident']['lng']; ?>));
+    <?php endif; ?>
+
+    google.maps.event.addListener(map, 'click', function(event) {
+        placeMarker(event.latLng, true);
+    });
+    function placeMarker(location, rewriteLocation) {
+        if (typeof(rewriteLocation) != 'undefined' && rewriteLocation) {
+            clearOverlays();
+            $('#IncidentLat').val(location.lat());
+            $('#IncidentLng').val(location.lng());
+        }
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+        markersArray.push(marker);
+        map.setCenter(location);
+
+    }
+
+    function clearOverlays(){
+        if (markersArray){
+            for (i in markersArray){
+                markersArray[i].setMap(null);
+            }
+        }
+    }
+    // ]]>
+</script>
 

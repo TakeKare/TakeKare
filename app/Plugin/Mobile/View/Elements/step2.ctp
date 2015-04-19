@@ -6,7 +6,7 @@
     <div class="block referrals">
         <?php foreach($referrals as $r): ?>
             <div class="p-1-3">
-                <?=$this->Form->input('referral_id', array('type' => 'radio', 'options' => [$r['Referral']['id'] => '<i class="fa ' . $r['Referral']['icon'] . ' fa-2x"></i><br />' . $r['Referral']['title']], 'div' => 'selector'))?>
+                <?=$this->Form->input('referral_id', array('type' => 'radio', 'options' => [$r['Referral']['id'] => '<i class="fa ' . $r['Referral']['icon'] . ' fa-2x"></i><br />' . $r['Referral']['title']], 'div' => 'selector', 'hiddenField' => false))?>
             </div>
         <?php endforeach; ?>
     </div>

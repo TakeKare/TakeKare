@@ -24,6 +24,27 @@
     padding: 8px;
 }
 
+.app-button.add {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 0;
+    background: #00aeef;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+}
+    .app-button.add .fa {
+        color: #FFFFFF;
+        font-size: 1.5em;
+    }
+    .app-button.add.active {
+        box-shadow: none;
+        background: #0393c9;
+    }
+
 .fa {
     color: #00aeef;
 }

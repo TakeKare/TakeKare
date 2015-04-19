@@ -5,10 +5,10 @@
     <div class="app-content">
         <ul class="app-list">
         <?php foreach ($incidents as $inc): ?>
-            <li class=""><a href="<?=Router::url(['action' => 'save', $inc['Incident']['id']])?>">asdasd</a></li>
+            <li class=""><a href="<?=Router::url(['action' => 'save', $inc['Incident']['id']])?>"><?= $inc['Incident']['created'] ?></a></li>
         <?php endforeach; ?>
-            <li class=""><a href="<?=Router::url(['action' => 'save', $inc['Incident']['id']])?>">asdasd</a></li>
         </ul>
+        <div class="app-button add"><i class="fa fa-plus"></i></div>
     </div>
 
 </div>
@@ -35,10 +35,10 @@
 
 <script>
     $(function(){
-        try {
-            App.restore();
-        } catch (err) {
+        //try {
+        //    App.restore();
+        //} catch (err) {
             App.load('home');
-        }
+        //}
     })
 </script>

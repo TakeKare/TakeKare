@@ -73,7 +73,7 @@
 
 <div id="page-wrapper">
 
-    <h1><?= $title_for_layout ?></h1>
+    <h1><?= ($pageTitle ? $pageTitle : $title_for_layout) ?></h1>
 
     <?php echo $this->Session->flash(); ?>
 

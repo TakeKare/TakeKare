@@ -7,7 +7,7 @@
     <div class="block referrals">
         <?php foreach($supportTypes as $r): ?>
             <div class="p-1-3">
-                <?=$this->Form->input('support_type_id', array('type' => 'radio', 'options' => [$r['SupportType']['id'] => '<i class="fa ' . $r['SupportType']['icon'] . ' fa-2x"></i><br />' . $r['SupportType']['title']], 'div' => 'selector'))?>
+                <?=$this->Form->input('support_type_id', array('type' => 'radio', 'options' => [$r['SupportType']['id'] => '<i class="fa ' . $r['SupportType']['icon'] . ' fa-2x"></i><br />' . $r['SupportType']['title']], 'div' => 'selector', 'hiddenField' => false))?>
             </div>
         <?php endforeach; ?>
     </div>

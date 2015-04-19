@@ -13,6 +13,8 @@
         <?=$this->Form->input('contact', array('label' => __('Conact'), 'type' => 'checkbox'))?>
         <?=$this->Form->input('report', array('label' => __('Report'), 'type' => 'checkbox'))?>
     </div>
+    <?=$this->Form->input('lat', array('type' => 'hidden'))?>
+    <?=$this->Form->input('lng', array('type' => 'hidden'))?>
     <div class="footer">
         <div class="p-1-2">
             <div class="app-button" data-back><i class="fa fa-angle-left"></i> <?= __('Back') ?></div>

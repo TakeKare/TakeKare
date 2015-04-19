@@ -2,7 +2,7 @@
 <fieldset class="col-lg-6">
     <?=$this->Form->listErrors()?>
     <?=$this->Form->hidden('id')?>
-    <?=$this->Form->input('branch_id', array('label' => __('Branch')))?>
+    <?=$this->Form->input('team_id', array('label' => __('Team'), 'empty' => true))?>
     <?=$this->Form->input('email', array('label' => __('Email')))?>
     <?=$this->Form->input('name', array('label' => __('Name')))?>
     <?=$this->Form->input('password', array('label' => __('Password'), 'value' => ''))?>

@@ -1,22 +1,28 @@
 
 function getFormData(parent, data) {
-    $('input[type="number"], input:checked[type="radio"], input:checked[type="checkbox"], textarea, select, input:hidden', parent).each(function(){
+    $('input[type="number"], input:checked[type="radio"], input:checked[type="checkbox"], textarea, select, input[type="hidden"]', parent).each(function(){
         data[this.name] = this.value;
+        console.log(this.id);
     });
-
+console.log(data);
     return data;
 }
 
 $(function(){
-    App.controller('step1', function (page) {
+    App.controller('home', function (page) {
         $(page)
-            .find('.next')
+            .find('.add')
             .on('click', function () {
-                App.load('step2', getFormData(page, {}));
+                App.load('step1', {});
             });
     });
 
     App.controller('step1', function (page) {
+        $(page)
+            .find('.back')
+            .on('click', function () {
+                location.href = $('base').attr('href') + 'mobile/incidents/index';
+            });
         $(page)
             .find('.next')
             .on('click', function () {
@@ -41,23 +47,28 @@ $(function(){
     });
 
     App.controller('step4', function (page, data) {
+        if ($('#IncidentLat', page).val() == '0.00000000') {
+            navigator.geolocation.getCurrentPosition(GetLocation);
+            function GetLocation(location) {
+                $('#IncidentLat', page).val(location.coords.latitude);
+                $('#IncidentLng', page).val(location.coords.longitude);
+            }
+        }
+
         $(page)
             .find('.next')
             .on('click', function () {
                 var d = getFormData(page, data);
-console.log(d);
+
                 $.ajax({
                     type: "POST",
                     url: $('base').attr('href') + 'mobile/incidents/save/' + d['data[Incident][id]'],
                     data: d,
                     //dataType: 'json',
                     success: function(){
-                        //location.href = $('base').attr('href') + 'mobile/incidents/index';
+                        location.href = $('base').attr('href') + 'mobile/incidents/index';
                     }
                 });
-
-
-                console.log(d);
             });
     });
 
