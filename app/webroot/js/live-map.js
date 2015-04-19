@@ -153,19 +153,19 @@ $(function() {
        maxZoom: 18
        }).addTo(map);
     var safeSpace = L.divIcon({
-      className: 'fa-2x fa-h-square icon-1',
+      className: 'fa fa-2x fa-h-square icon-1',
         iconSize: [20, 20]
     });
     var incident = L.divIcon({
-      className: 'fa-2x fa-exclamation-circle icon-2',
+      className: 'fa fa-2x fa-exclamation-circle icon-2',
         iconSize: [20, 20]
     });
     var user = L.divIcon({
-      className: 'fa-2x fa-user icon-3',
+      className: 'fa fa-2x fa-user icon-3',
         iconSize: [20, 20]
     });
     var ref = L.divIcon({
-      className: 'fa-2x fa-ambulance',
+      className: 'fa fa-2x fa-ambulance',
         iconSize: [20, 20]
     });
     L.marker([-33.87406781608232,151.20644330978394] , {icon: safeSpace}).addTo(map);
