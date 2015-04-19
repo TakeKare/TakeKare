@@ -212,6 +212,7 @@ textarea.app-input {
     padding-bottom: 0.5em;
     line-height: 1.4em;
     background: #dff0d8;
+    cursor: pointer;
 }
     .app-list > li.incident .created {
     }
