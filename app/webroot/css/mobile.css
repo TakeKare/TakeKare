@@ -1,3 +1,7 @@
+.clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
+.clearfix, .container {display:block;}
+.clear {clear:both;}
+
 .app-page, .app-content {
     background: #dddddd;
 }
@@ -18,7 +22,7 @@
 }
 
 .app-button {
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
   .block {
@@ -228,6 +232,46 @@ textarea.app-input {
     }
     .app-list > li.is-report {
         background: #fcf8e3;
+    }
+
+.app-list.chat {
+    font-size: 0.9em;
+}
+    .app-list.chat > li {
+        height: auto;
+        line-height: 1.4em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+    .app-list.chat > li .time {
+        float: right;
+        color: #999;
+        font-size: 0.8em;
+    }
+    .app-list.chat > li .time .fa {
+        color: #999;
+    }
+    .app-list.chat > li .author {
+        float: left;
+        font-weight: bold;
+    }
+    .app-list.chat > li .p {
+        clear: both;
+    }
+
+.chat-footer {
+
+}
+    .chat-footer .app-input {
+        float: left;
+        width: 65%;
+        margin-left: 20px;
+        height: 40px !important;
+    }
+    .chat-footer .app-button {
+        float: right;
+        width: 20%;
+        margin-right: 20px;
     }
 
 .tabs {
