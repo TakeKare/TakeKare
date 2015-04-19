@@ -37,14 +37,13 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    
+
     <script src="//code.highcharts.com/highcharts.js"></script>
     <!--
     <script src="//code.highcharts.com/modules/heatmap.js"></script>
     -->
     <?php
     echo $this->Html->css('sb-admin');
-    echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('timeline');
     echo $this->Html->css('bootstrap-slider');
     echo $this->Html->css('style');
