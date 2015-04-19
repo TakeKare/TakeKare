@@ -19,6 +19,7 @@
     <!-- put your pages here -->
     <script src="//zeptojs.com/zepto.min.js"></script>
     <script src="//cdn.kik.com/app/3.0.0/app.min.js"></script>
+    <div id="preloader"><i class="fa fa-spinner fa-pulse fa-3x"></i></div>
     <?php echo $this->fetch('content'); ?>
 </body>
 </html>

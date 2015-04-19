@@ -11,6 +11,7 @@ console.log(data);
 $(function(){
     App.controller('home', function (page) {
         $('.incident', page).click(function(){
+            $('#preloader').show();
             location.href = $('base').attr('href') + 'mobile/incidents/save/' + $(this).data('id');
         });
 
@@ -67,6 +68,7 @@ $(function(){
         $(page)
             .find('.back')
             .on('click', function () {
+                $('#preloader').show();
                 location.href = $('base').attr('href') + 'mobile/incidents/index';
             });
         $(page)
@@ -104,6 +106,8 @@ $(function(){
         $(page)
             .find('.next')
             .on('click', function () {
+                $('#preloader').show();
+
                 var d = getFormData(page, data);
 
                 $.ajax({

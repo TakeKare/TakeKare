@@ -2,7 +2,7 @@
     <div class="app-topbar">
         <div class="app-title"><span class="app-icon"></span> <?= __('Take Kare') ?></div>
     </div>
-    <?= $this->element('tabs') ?>
+    <?= $this->element('tabs', ['active' => 'home']) ?>
     <div class="app-content">
         <ul class="app-list">
         <?php foreach ($incidents as $inc): ?>
@@ -51,7 +51,7 @@
     <div class="app-topbar">
         <div class="app-title"><?= __('Teams Location') ?></div>
     </div>
-    <?= $this->element('tabs') ?>
+    <?= $this->element('tabs', ['active' => 'teams-location']) ?>
     <div class="app-content">
         <div id="map"></div>
     </div>

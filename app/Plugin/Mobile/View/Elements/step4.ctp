@@ -13,6 +13,12 @@
         <?=$this->Form->input('contact', array('label' => __('Conact'), 'type' => 'checkbox'))?>
         <?=$this->Form->input('report', array('label' => __('Report'), 'type' => 'checkbox'))?>
     </div>
+    <div class="block supplies">
+        <?=$this->Form->input('water_given', array('label' => __('Water'), 'type' => 'number', 'class' => 'app-input', 'default' => 0))?>
+        <?=$this->Form->input('chupa_chups_given', array('label' => __('Chupa Chups'), 'type' => 'number', 'class' => 'app-input', 'default' => 0))?>
+        <?=$this->Form->input('thongs_given', array('label' => __('Thongs'), 'type' => 'number', 'class' => 'app-input', 'default' => 0))?>
+        <?=$this->Form->input('vomit_bags_given', array('label' => __('Vomit bags'), 'type' => 'number', 'class' => 'app-input', 'default' => 0))?>
+    </div>
     <?=$this->Form->input('lat', array('type' => 'hidden'))?>
     <?=$this->Form->input('lng', array('type' => 'hidden'))?>
     <div class="footer">
