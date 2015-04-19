@@ -3,6 +3,8 @@
 </div>
 <div class="app-content">
     <?=$this->Form->input('id', array('type' => 'hidden'))?>
+    <?=$this->Form->input('area_id', array('type' => 'hidden', 'default' => $team['Team']['area_id']))?>
+    <?=$this->Form->input('team_id', array('type' => 'hidden', 'default' => $team['Team']['id']))?>
     <div class="block genders">
         <div class="gender">
             <label for="IncidentMalesNumber"><i class="fa fa-male"></i></label>

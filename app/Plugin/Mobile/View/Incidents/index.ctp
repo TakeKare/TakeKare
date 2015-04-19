@@ -5,7 +5,22 @@
     <div class="app-content">
         <ul class="app-list">
         <?php foreach ($incidents as $inc): ?>
-            <li class=""><a href="<?=Router::url(['action' => 'save', $inc['Incident']['id']])?>"><?= $inc['Incident']['created'] ?></a></li>
+            <?php
+            $style = '';
+            if ($inc['Incident']['police']) {
+                $style = 'is-police';
+            } elseif ($inc['Incident']['report']) {
+                $style = 'is-report';
+            } elseif ($inc['Incident']['contact']) {
+                $style = 'is-contact';
+            } elseif ($inc['Incident']['draft']) {
+                $style = 'is-draft';
+            }
+            ?>
+            <li class="incident <?= $style ?>" data-id="<?=$inc['Incident']['id']?>">
+                <span class="created"><?= date('l, j F, H:i', strtotime($inc['Incident']['created'])) ?></span><br />
+                <p><strong><?= $inc['Incident']['males_number'] ?></strong> males, <strong><?= $inc['Incident']['females_number'] ?></strong> females. Support provided: <strong><?= $inc['SupportType']['title'] ?></strong></p>
+            </li>
         <?php endforeach; ?>
         </ul>
         <div class="app-button add"><i class="fa fa-plus"></i></div>

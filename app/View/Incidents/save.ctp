@@ -39,7 +39,7 @@
     // <![CDATA[
     var myOptions = {
         zoom: 15,
-        center: new google.maps.LatLng(55.166625, 23.873291),
+        center: new google.maps.LatLng(-33.8681, 151.2075),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 

@@ -2,7 +2,7 @@
 $config = array(
     'Email' => array(
         'from'     => 'info@coinbuzz.net',
-        'fromName' => 'Scannner',
+        'fromName' => 'Take Kare',
         'admin'    => 'andrej@melon.com.au'
     ),
     'Paths' => array(

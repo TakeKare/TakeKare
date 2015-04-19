@@ -2,7 +2,7 @@
 function getFormData(parent, data) {
     $('input[type="number"], input:checked[type="radio"], input:checked[type="checkbox"], textarea, select, input[type="hidden"]', parent).each(function(){
         data[this.name] = this.value;
-        console.log(this.id);
+        //console.log(this.id);
     });
 console.log(data);
     return data;
@@ -10,6 +10,10 @@ console.log(data);
 
 $(function(){
     App.controller('home', function (page) {
+        $('.incident', page).click(function(){
+            location.href = $('base').attr('href') + 'mobile/incidents/save/' + $(this).data('id');
+        });
+
         $(page)
             .find('.add')
             .on('click', function () {
@@ -47,9 +51,9 @@ $(function(){
     });
 
     App.controller('step4', function (page, data) {
-        if ($('#IncidentLat', page).val() == '0.00000000') {
-            navigator.geolocation.getCurrentPosition(GetLocation);
-            function GetLocation(location) {
+        navigator.geolocation.getCurrentPosition(GetLocation);
+        function GetLocation(location) {
+            if ($('#IncidentLat', page).val() == '0.00000000') {
                 $('#IncidentLat', page).val(location.coords.latitude);
                 $('#IncidentLng', page).val(location.coords.longitude);
             }

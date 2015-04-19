@@ -17,7 +17,7 @@ class Incident extends AppModel
     const RECEPT_2 = 2;
     const RECEPT_3 = 3;
 
-    public $belongsTo = ['Area', 'Team', 'Referral'];
+    public $belongsTo = ['Area', 'Team', 'Referral', 'SupportType'];
 
     public static function ageList()
     {

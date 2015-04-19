@@ -197,3 +197,31 @@ textarea.app-input {
     .footer .app-button {
         margin: 0 1em;
     }
+
+.app-list > li.incident {
+    height: auto;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    line-height: 1.4em;
+    background: #dff0d8;
+}
+    .app-list > li.incident .created {
+    }
+    .app-list > li.incident p {
+        margin: 0;
+        padding: 0;
+        color: #888888;
+        font-size: 0.9em;
+    }
+    .app-list > li.is-contact {
+        background: #dff0d8;
+    }
+    .app-list > li.is-draft {
+        background: #fcf8e3;
+    }
+    .app-list > li.is-police {
+        background: #f2dede;
+    }
+    .app-list > li.is-report {
+        background: #fcf8e3;
+    }
