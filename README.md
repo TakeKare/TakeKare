@@ -1,43 +1,24 @@
-CakePHP
-=======
+# CakePHP Application Skeleton
 
-[![CakePHP](http://cakephp.org/img/cake-logo.png)](http://www.cakephp.org)
+[![Build Status](https://api.travis-ci.org/cakephp/app.png)](https://travis-ci.org/cakephp/app)
+[![License](https://poser.pugx.org/cakephp/app/license.svg)](https://packagist.org/packages/cakephp/app)
 
-CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.
-Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+A skeleton for creating applications with [CakePHP](http://cakephp.org) 3.0.
 
-Some Handy Links
-----------------
+## Installation
 
-[CakePHP](http://www.cakephp.org) - The rapid development PHP framework
+1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
+2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
 
-[CookBook](http://book.cakephp.org) - THE CakePHP user documentation; start learning here!
+If Composer is installed globally, run
+```bash
+composer create-project --prefer-dist cakephp/app [app_name]
+```
 
-[API](http://api.cakephp.org) - A reference to CakePHP's classes
+You should now be able to visit the path to where you installed the app and see
+the setup traffic lights.
 
-[Plugins](http://plugins.cakephp.org/) - A repository of extensions to the framework
+## Configuration
 
-[The Bakery](http://bakery.cakephp.org) - Tips, tutorials and articles
-
-[Community Center](http://community.cakephp.org) - A source for everything community related
-
-[Training](http://training.cakephp.org) - Join a live session and get skilled with the framework
-
-[CakeFest](http://cakefest.org) - Don't miss our annual CakePHP conference
-
-[Cake Software Foundation](http://cakefoundation.org) - Promoting development related to CakePHP
-
-Get Support!
-------------
-
-[#cakephp](http://webchat.freenode.net/?channels=#cakephp) on irc.freenode.net - Come chat with us, we have cake
-
-[Google Group](https://groups.google.com/group/cake-php) - Community mailing list and forum
-
-[GitHub Issues](https://github.com/cakephp/cakephp/issues) - Got issues? Please tell us!
-
-[Roadmaps](https://github.com/cakephp/cakephp/wiki#roadmaps) - Want to contribute? Get involved!
-
-[![Bake Status](https://secure.travis-ci.org/cakephp/cakephp.png?branch=master)](http://travis-ci.org/cakephp/cakephp)
-
-![Cake Power](https://raw.github.com/cakephp/cakephp/master/lib/Cake/Console/Templates/skel/webroot/img/cake.power.gif)
+Read and edit `config/app.php` and setup the 'Datasources' and any other
+configuration relevant for your application.

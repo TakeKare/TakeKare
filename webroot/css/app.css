@@ -1,0 +1,25 @@
+.navbar {
+    background: #00aeef;
+}
+
+.navbar-top-links a {
+    color: #FFFFFF;
+}
+
+.navbar-top-links .dropdown-toggle:hover, .navbar-top-links .dropdown-toggle:focus, .navbar-top-links .open .dropdown-toggle {
+    background: #039dd6 !important;
+}
+
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+
+}
+
+#entity-map {
+    width: 600px;
+    height: 300px;
+    margin-bottom: 15px;
+}
+
+.table .actions {
+    width: 150px;
+}

@@ -1,13 +1,7 @@
-# User specific & automatically generated files #
-#################################################
-/app/Config/database.php
-/app/tmp
-/lib/Cake/Console/Templates/skel/tmp/
-/plugins
-#/vendors
-/build
-/dist
-/tags
+/vendor/*
+/config/app.php
+/tmp/*
+/logs/*
 
 # OS generated files #
 ######################
@@ -22,13 +16,3 @@ Thumbs.db
 
 .vagrant
 .idea
-/app/Config/*_local.php
-
-/vendors/autoload.php
-/vendors/composer
-/vendors/bin
-/vendors/phpunit
-/vendors/symfony
-/vendors/opauth
-
-/vendors/Salt/roots/pillar/*sensitive.sls
