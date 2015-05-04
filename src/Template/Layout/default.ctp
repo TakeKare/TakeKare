@@ -51,7 +51,7 @@ use Cake\Controller\Component\AuthComponent;
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="<?=Router::url(['controller' => 'incidents', 'action' => 'index'])?>"><i class="fa fa-exclamation-circle fa-fw"></i> <?=__('Incidents')?></a>
+                        <a href="<?=Router::url(['controller' => 'Incidents', 'action' => 'index', 'plugin' => 'Incidents'])?>"><i class="fa fa-exclamation-circle fa-fw"></i> <?=__('Incidents')?></a>
                     </li>
                     <li>
                         <a href="<?=Router::url(['controller' => 'dashboards', 'action' => 'index'])?>"><i class="fa fa-dashboard fa-fw"></i> <?=__('Overview')?></a>

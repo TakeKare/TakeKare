@@ -18,7 +18,7 @@
     <tbody>
     <?php foreach ($incidents as $incident): ?>
         <tr>
-            <td><?php debug($incident); ?><?= $this->Number->format($incident->id) ?></td>
+            <td><?= $this->Number->format($incident->id) ?></td>
             <td>
                 <?= $incident->has('area') ? $this->Html->link($incident->area->title, ['controller' => 'Areas', 'action' => 'save', $incident->area->id]) : '' ?>
             </td>
@@ -27,8 +27,8 @@
             </td>
             <td><?= $this->Number->format($incident->males_number) ?></td>
             <td><?= $this->Number->format($incident->females_number) ?></td>
-            <td><?= $agesList[$incident->age] ?></td>
-            <td><?= $this->Number->format($incident->intoxication) ?></td>
+            <td><?= (!$incident->age ?: $ages[$incident->age]) ?></td>
+            <td><?= (!$incident->intoxication ?: $intoxications[$incident->intoxication]) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('Edit'), ['action' => 'save', $incident->id]) ?>
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $incident->id], ['confirm' => __('Are you sure you want to delete # {0}?', $incident->id)]) ?>

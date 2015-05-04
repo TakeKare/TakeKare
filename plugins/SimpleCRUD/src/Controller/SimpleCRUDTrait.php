@@ -62,8 +62,7 @@ trait SimpleCRUDTrait
         $associations = $this->_filteredAssociations($this->getModel());
         foreach ($associations as $assoc => $models) {
             foreach ($models as $k => $v) {
-                //$dataSet = TableRegistry::get($k);
-                //$dataSet = $this->getModel()->{$k};
+                $dataSet = $this->getModel()->{$k};
                 $this->set(Inflector::variable($k), $dataSet->find('list'));
             }
         }

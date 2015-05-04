@@ -5,5 +5,18 @@
 $this->append('script', $this->Html->script([
     'app',
 ]));
+
+use Cake\Utility\Inflector;
+
+$controller = Inflector::variable($this->request->params['controller']);
+$action = Inflector::variable($this->request->params['action']);
+
+if (is_readable(WWW_ROOT . 'js' . DS . ($path = 'c' . DS . $controller) . '.js')) {
+    $this->append('script', $this->Html->script($path));
+}
+
+if (is_readable(WWW_ROOT . 'js' . DS . ($path = 'c' . DS . $controller . DS . $action) . '.js')) {
+    $this->append('script', $this->Html->script($path));
+}
 ?>
 <?= $this->fetch('script') ?>

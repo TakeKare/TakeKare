@@ -23,10 +23,11 @@ class IncidentsController extends AppController
             'contain' => ['Teams', 'Areas', 'Areas.Cities', 'SubSupportTypes']
         ];
 
-        $agesList = Incident::ageList();
-        $intoxicationList = Incident::intoxicationList();
+        $ages = Incident::ageList();
+        $intoxications = Incident::intoxicationList();
+        $receptivenesses = Incident::receptivenessList();
 
-        $this->set(compact('agesList', 'intoxicationList'));
+        $this->set(compact('ages', 'intoxications', 'receptivenesses'));
 
         $this->crudIndex();
     }
@@ -35,11 +36,20 @@ class IncidentsController extends AppController
     {
         $ages = Incident::ageList();
         $intoxications = Incident::intoxicationList();
+        $areas = $this->Incidents->Areas->getHierarchyList();
+        $receptivenesses = Incident::receptivenessList();
 
-        $this->set(compact('ages', 'intoxications'));
+        $subSupportTypesFull = $this->Incidents->SubSupportTypes
+            ->find('all')
+            ->where(['parent_id IS NOT' => null])
+            ->order('pos');
 
-        TableRegistry::get('SubSupportTypes', ['table' => 'support_types']);
+        //debug($subSupportTypes->toArray());
 
         $this->crudSave($id);
+
+
+        $this->set(compact('ages', 'intoxications', 'subSupportTypesFull', 'areas', 'receptivenesses'));
+
     }
 }
