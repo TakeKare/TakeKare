@@ -28,6 +28,12 @@ class AppView extends View
         $this->loadHelper('Form', ['className' => 'BootstrapUI.Form']);
         $this->loadHelper('Flash', ['className' => 'BootstrapUI.Flash']);
         $this->loadHelper('Paginator', ['className' => 'BootstrapUI.Paginator']);
+
+        $myTemplates = [
+            'nestingLabel' => '{{hidden}}{{input}}<label{{attrs}}>{{text}}</label>'
+            //'inputContainer' => '<div class="form-control">{{content}}</div>',
+        ];
+        $this->Form->templates($myTemplates);
     }
 
 }

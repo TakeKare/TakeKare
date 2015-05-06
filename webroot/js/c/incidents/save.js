@@ -1,9 +1,9 @@
 $(function(){
-    $('#support-type-id').on('change', function() {
+    $('input[name="support_type_id"]').on('change', function() {
         var $subs = $('#sub-support-type-id');
         var selected = $subs.val();
         $subs.empty();
-        $subs.append('<option value=""></option>');
+        $subs.append('<option value="">- None -</option>');
         for (var i in subSupportTypes) {
             var subType = subSupportTypes[i];
             if (subType.parent_id != this.value) {

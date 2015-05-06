@@ -2,7 +2,6 @@
 namespace Incidents\Controller;
 
 use Incidents\Controller\AppController;
-use Cake\ORM\TableRegistry;
 
 /**
  * Teams Controller
@@ -19,7 +18,7 @@ class TeamsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Areas', 'Areas.Cities']
+            'contain' => ['Areas.Cities']
         ];
 
         $this->crudIndex();
@@ -27,7 +26,7 @@ class TeamsController extends AppController
 
     public function save($id = null)
     {
-        $areasList = TableRegistry::get('Incidents.Areas')->getHierarchyList();
+        $areasList = $this->loadModel('Incidents.Areas')->getHierarchyList();
         $this->set(compact('areasList'));
 
         $this->crudSave($id);

@@ -1,6 +1,6 @@
-    <ul class="nav nav-pills row">
-        <li><?= $this->Html->link(__('New Incident'), ['action' => 'save']) ?></li>
-    </ul>
+<ul class="nav nav-pills row">
+    <li><?= $this->Html->link(__('New Incident'), ['action' => 'save']) ?></li>
+</ul>
 <div class="incidents index large-10 medium-9 columns">
     <table class="table" cellpadding="0" cellspacing="0">
     <thead>

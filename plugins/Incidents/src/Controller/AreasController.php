@@ -10,16 +10,5 @@ use Incidents\Controller\AppController;
  */
 class AreasController extends AppController
 {
-    use \SimpleCRUD\Controller\SimpleCRUDTrait {
-        index as crudIndex;
-    }
-
-    public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Cities']
-        ];
-
-        $this->crudIndex();
-    }
+    use \SimpleCRUD\Controller\SimpleCRUDTrait;
 }

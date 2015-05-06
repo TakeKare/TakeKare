@@ -1,0 +1,145 @@
+
+.gender {
+    position: relative;
+}
+    .gender .form-control {
+        font-size: 2em;
+        text-align: center;
+        color: #00aeef;
+    }
+    .gender label {
+        position: absolute;
+        width: 25%;
+        text-align: center;
+    }
+    .gender label i {
+        font-size: 50px;
+    }
+
+    .gender .form-group {
+        padding-left: 40%;
+        margin-bottom: 30px;
+    }
+
+.selector {
+    margin-bottom: 2em;
+    text-align: center;
+}
+    .selector input {
+        display: none;
+    }
+    .selector label {
+        float: left;
+        background: #FFFFFF;
+        width: 21%;
+        margin: 0 2%;
+        font-weight: normal;
+        cursor: pointer;
+        line-height: 42px;
+        font-size: 1.15em;
+        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+        text-align: center;
+        color: #00aeef;
+        border-radius: 5px;
+    }
+    .selector input:checked + label {
+        background: #bbbbbb;
+        color: #ffffff;
+        box-shadow: none;
+    }
+    .selector.col-3 label {
+        width: 29%;
+    }
+    .selector .fa {
+        line-height: 42px;
+    }
+    .selector.lg {
+        margin-bottom: 0;
+    }
+        .selector.lg label {
+            margin-bottom: 1em;
+            line-height: 1em;
+            padding: 0.8em 0;
+        }
+        .selector.lg label i {
+            margin-bottom: 0.2em;
+        }
+
+.intoxication {}
+    .intoxication label {
+        height: 42px;
+    }
+    .intoxication .fa-2x {
+        font-size: 1.6em
+    }
+    .intoxication .fa-3x {
+        font-size: 2em
+    }
+
+h5.legend {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 0;
+}
+
+.supplies label {
+    font-weight: normal;
+    line-height: 1.2em;
+}
+.supplies input {
+    text-align: center;
+}
+
+.pager .btn {
+    border-radius: 0;
+    width: 48%;
+    font-size: 1.1em;
+    padding: 8px 12px;
+    border: 1px solid #cccccc;
+    font-size: 1.2em;
+}
+.pager .btn-primary {
+    float: right;
+}
+.pager .disabled {
+    display: none;
+}
+.further-action {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.tab-content > .tab-pane {
+    display: block;
+    transition: opacity 0.5s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.tab-content > .active {
+    display: block;
+    opacity: 1;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .pager {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #cccccc;
+        margin: 0;
+        padding: 10px 15px;
+    }
+    #bar {
+        position: fixed;
+        height: 5px;
+        top: 50px;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+    }
+}

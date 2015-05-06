@@ -3,7 +3,6 @@ namespace SimpleCRUD\Controller;
 
 use Cake\Utility\Inflector;
 use Bake\Utility\Model\AssociationFilter;
-use Cake\ORM\TableRegistry;
 
 trait SimpleCRUDTrait
 {
@@ -36,7 +35,20 @@ trait SimpleCRUDTrait
     {
         $name = Inflector::variable($this->getModel()->alias());
 
-        $this->set($name, $this->paginate($this->getModel()));
+        $contain = [];
+        $associations = $this->_filteredAssociations($this->getModel());
+        foreach ($associations as $assoc => $models) {
+            if ($assoc == 'HasMany') {
+                continue;
+            }
+
+            $contain = array_merge($contain, array_keys($models));
+        }
+
+        $this->paginate = array_merge_recursive($this->paginate, compact('contain'));
+        $data = $this->paginate($this->getModel());
+
+        $this->set($name, $data);
         $this->set('_serialize', [$name]);
     }
 
@@ -61,6 +73,10 @@ trait SimpleCRUDTrait
 
         $associations = $this->_filteredAssociations($this->getModel());
         foreach ($associations as $assoc => $models) {
+            if ($assoc == 'HasMany') {
+                continue;
+            }
+
             foreach ($models as $k => $v) {
                 $dataSet = $this->getModel()->{$k};
                 $this->set(Inflector::variable($k), $dataSet->find('list'));

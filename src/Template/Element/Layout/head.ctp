@@ -1,11 +1,12 @@
 <?php
 use Cake\Routing\Router;
+use Cake\Utility\Inflector;
 ?>
 <head>
     <base href="<?= Router::url("/", true) ?>" />
     <?= $this->Html->charset() ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <meta name="description" content="Bootstrap Admin App + jQuery">
     <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
     <title>Angle - Bootstrap Admin Template</title>
@@ -15,8 +16,20 @@ use Cake\Routing\Router;
     $this->append('css', $this->Html->css([
         'sb-admin-2.css',
         'timeline.css',
+        'awesome-bootstrap-checkbox.css',
         'app.css',
     ]));
+
+    $controller = Inflector::variable($this->request->params['controller']);
+    $action = Inflector::variable($this->request->params['action']);
+
+    if (is_readable(WWW_ROOT . 'css' . DS . ($path = 'c' . DS . $controller . '.css'))) {
+        $this->append('css', $this->Html->css($path));
+    }
+
+    if (is_readable(WWW_ROOT . 'css' . DS . ($path = 'c' . DS . $controller . DS . $action . '.css'))) {
+        $this->append('css', $this->Html->css($path));
+    }
     ?>
     <?= $this->fetch('css') ?>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

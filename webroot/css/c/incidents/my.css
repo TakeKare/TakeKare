@@ -1,0 +1,50 @@
+.my-incidents {
+    padding: 0;
+    list-style-type: none;
+}
+    .my-incidents li {
+        display: block;
+        background: #FFFFFF;
+        border-bottom: 1px solid #dddddd;
+    }
+    .my-incidents a {
+        display: block;
+        padding: 10px 15px;
+        color: #888888;
+    }
+    .my-incidents .date {
+        font-size: 1.1em;
+        color: #333333;
+    }
+    .my-incidents a:hover {
+        text-decoration: none;
+        background: #eeeeee;
+    }
+
+.add {
+    position: fixed;
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    line-height: 60px;
+    padding: 0;
+    text-align: center;
+    font-size: 40px;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+    .add .fa {
+        color: #FFFFFF;
+        font-size: 1.8em;
+    }
+
+@media (max-width: 768px) {
+    .my-incidents {
+        margin: -1.5em -15px 0 -15px;
+        padding: 0;
+    }
+    .actions {
+        display: none;
+    }
+}
