@@ -57,14 +57,14 @@ class AppController extends Controller
                 'plugin'     => 'Users'
             ],
             'loginRedirect'  => [
-                'controller' => 'Cities',
+                'controller' => 'Incidents',
                 'action'     => 'index',
                 'plugin'     => 'Incidents',
             ],
             'logoutRedirect' => [
                 'controller' => 'Users',
                 'action'     => 'login',
-                'plugin'     => 'Incidents',
+                'plugin'     => 'Users',
             ],
         ]);
 

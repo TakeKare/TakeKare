@@ -9,6 +9,9 @@ use Cake\Auth\DefaultPasswordHasher;
  */
 class User extends Entity
 {
+    const ROLE_SUPER_ADMIN = 'super_admin';
+    const ROLE_ADMIN = 'admin';
+    const ROLE_TEAM_LEAD = 'team_lead';
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -34,5 +37,14 @@ class User extends Entity
     protected function _setPassword($password)
     {
         return (new DefaultPasswordHasher)->hash($password);
+    }
+
+    public static function roles()
+    {
+        return [
+            self::ROLE_SUPER_ADMIN => __('Super Admin'),
+            self::ROLE_ADMIN => __('Admin'),
+            self::ROLE_TEAM_LEAD => __('Team Lead'),
+        ];
     }
 }

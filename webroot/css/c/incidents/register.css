@@ -125,6 +125,9 @@ h5.legend {
 }
 
 @media (max-width: 768px) {
+    #page-wrapper {
+        padding-bottom: 60px;
+    }
     .pager {
         position: fixed;
         bottom: 0;

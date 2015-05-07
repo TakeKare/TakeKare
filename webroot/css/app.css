@@ -22,6 +22,10 @@
     background: #039dd6 !important;
 }
 
+.navbar-default .navbar-toggle:focus {
+    background: none;
+}
+
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #ffffff;
 }

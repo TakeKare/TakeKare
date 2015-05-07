@@ -2,6 +2,7 @@
 namespace Users\Controller;
 
 use Users\Controller\AppController;
+use Users\Model\Entity\User;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 use Cake\Utility\Inflector;
@@ -28,6 +29,10 @@ class UsersController extends AppController
 
     public function index()
     {
+        $roles = User::roles();
+
+        $this->set(compact('roles'));
+
         $this->paginate = [
             'contain' => ['Teams']
         ];
@@ -40,6 +45,8 @@ class UsersController extends AppController
         $data = $id
             ? $this->Users->get($id)
             : $this->Users->newEntity();
+
+        $roles = User::roles();
 
         if ($this->request->is(['post', 'put', 'patch'])) {
             $validate = 'default';
@@ -65,11 +72,10 @@ class UsersController extends AppController
                 $this->set(Inflector::variable($k), $dataSet->find('list'));
             }
         }
-        //debug($associations);
 
         $name = Inflector::variable(Inflector::singularize($this->Users->alias()));
         $this->set($name, $data);
-        $this->set(compact('id'));
+        $this->set(compact('id', 'roles'));
         $this->set('_serialize', [$name]);
     }
 
@@ -79,6 +85,12 @@ class UsersController extends AppController
 
         if ($this->request->is('post')) {
             if ($user = $this->Auth->identify()) {
+                $user['area_id'] = null;
+                if ($user['team_id']) {
+                    $team = $this->Users->Teams->get($user['team_id']);
+                    $user['area_id'] = $team->area_id;
+                }
+
                 $this->Auth->setUser($user);
 
                 $this->Users->logLogin($user['id']);

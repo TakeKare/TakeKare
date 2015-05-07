@@ -20,7 +20,8 @@ class IncidentsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Areas.Cities']
+            'contain' => ['Areas.Cities'],
+            'order' => ['Incidents.id' => 'DESC']
         ];
 
         $ages = Incident::ageList();
@@ -55,9 +56,15 @@ class IncidentsController extends AppController
     {
         // TODO: only show my team incidents
 
-        $this->paginate = [
-            'contain' => ['Areas.Cities']
-        ];
+        $conditions = [];
+        $contain = ['Areas.Cities'];
+        $order = ['Incidents.id' => 'DESC'];
+
+        if ($this->Auth->user('team_id')) {
+            $conditions['team_id'] = $this->Auth->user('team_id');
+        }
+
+        $this->paginate = compact('conditions', 'contain', 'order');
 
         $ages = Incident::ageList();
         $intoxications = Incident::intoxicationList();
@@ -72,6 +79,8 @@ class IncidentsController extends AppController
     {
         // TODO: only allow to edit/add my team incidents
 
+        $this->listUrl = ['action' => 'my'];
+
         $ages = Incident::ageList();
         $intoxications = Incident::intoxicationList(true);
         $receptivenesses = Incident::receptivenessList(true);
@@ -82,7 +91,10 @@ class IncidentsController extends AppController
             ->where(['parent_id IS NOT' => null])
             ->order('pos');
 
-        //debug($subSupportTypes->toArray());
+        if ($this->request->is(['post', 'put', 'patch']) && $this->Auth->user('team_id')) {
+            $this->request->data['team_id'] = $this->Auth->user('team_id');
+            $this->request->data['area_id'] = $this->Auth->user('area_id');
+        }
 
         $this->crudSave($id);
 
@@ -95,6 +107,6 @@ class IncidentsController extends AppController
             ->where(['parent_id IS' => null])
             ->order('pos');
 
-        $this->set(compact('ages', 'intoxications', 'subSupportTypesFull', 'areas', 'receptivenesses', 'referrals', 'supportTypes'));
+        $this->set(compact('ages', 'intoxications', 'subSupportTypesFull', 'areas', 'receptivenesses', 'referrals', 'supportTypes', 'userTeam'));
     }
 }

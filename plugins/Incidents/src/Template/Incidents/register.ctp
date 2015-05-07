@@ -19,22 +19,30 @@ foreach ($supportTypes as $s) {
     echo $this->Form->hidden('id');
     echo $this->Form->hidden('lat');
     echo $this->Form->hidden('lng');
-    echo $this->Form->hidden('area_id');
-    echo $this->Form->hidden('team_id');
     ?>
 
     <div id="bar" class="progress">
-        <div class="progress-bar progress-bar-striped active" style="width:0"></div>
+        <div class="progress-bar active" style="width:0"></div>
     </div>
 
     <ul style="display:none">
-        <li><a href="#tab1" data-toggle="tab">Incident Report</a></li>
-        <li><a href="#tab2" data-toggle="tab">Referred By</a></li>
-        <li><a href="#tab3" data-toggle="tab">Support Provided</a></li>
-        <li><a href="#tab4" data-toggle="tab">Outcome</a></li>
+        <li><a href="#tab1" data-toggle="tab"><?= __('Incident Report') ?></a></li>
+        <li><a href="#tab2" data-toggle="tab"><?= __('Referred By') ?></a></li>
+        <li><a href="#tab3" data-toggle="tab"><?= __('Support Provided') ?></a></li>
+        <li><a href="#tab4" data-toggle="tab"><?= __('Outcome') ?></a></li>
     </ul>
     <div class="tab-content">
         <fieldset class="tab-pane" id="tab1">
+            <?php if (!$userInfo['team_id']): ?>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <?= $this->Form->input('area_id') ?>
+                    </div>
+                    <div class="col-xs-6">
+                        <?= $this->Form->input('team_id') ?>
+                    </div>
+                </div>
+            <?php endif; ?>
             <div class="row gender">
                 <div class="col-xs-6">
                     <label for="males-number"><i class="fa fa-male"></i></label>

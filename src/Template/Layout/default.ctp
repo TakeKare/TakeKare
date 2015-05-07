@@ -2,6 +2,7 @@
 use Cake\Routing\Router;
 use Cake\Core\Configure;
 use Cake\Controller\Component\AuthComponent;
+use Users\Model\Entity\User;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,13 +30,18 @@ use Cake\Controller\Component\AuthComponent;
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="<?=Router::url(array('controller' => 'Users', 'action' => 'profile', 'plugin' => 'Users'))?>"><i class="fa fa-user fa-fw"></i> <?=__('User Profile')?></a></li>
-                        <li class="divider"></li>
-                        <li><a href="<?=Router::url(array('controller' => 'Cities', 'action' => 'index', 'plugin' => 'Incidents'))?>"><i class="fa fa-folder fa-fw"></i> <?=__('Cities')?></a></li>
-                        <li><a href="<?=Router::url(array('controller' => 'Areas', 'action' => 'index', 'plugin' => 'Incidents'))?>"><i class="fa fa-file fa-fw"></i> <?=__('Areas')?></a></li>
-                        <li><a href="<?=Router::url(array('controller' => 'Teams', 'action' => 'index', 'plugin' => 'Incidents'))?>"><i class="fa fa-users fa-fw"></i> <?=__('Teams')?></a></li>
-                        <li class="divider"></li>
-                        <li><a href="<?=Router::url(array('controller' => 'Referrals', 'action' => 'index', 'plugin' => 'Incidents'))?>"><i class="fa fa-file fa-fw"></i> <?=__('Referrals')?></a></li>
-                        <li><a href="<?=Router::url(array('controller' => 'SupportTypes', 'action' => 'index', 'plugin' => 'Incidents'))?>"><i class="fa fa-file fa-fw"></i> <?=__('Support Types')?></a></li>
+                        <?php if ($userInfo['role'] != User::ROLE_TEAM_LEAD): ?>
+                        <li><a href="<?=Router::url(array('controller' => 'Users', 'action' => 'index', 'plugin' => 'Users'))?>"><i class="fa fa-user fa-fw"></i> <?=__('Users')?></a></li>
+                        <?php endif; ?>
+                        <?php if ($userInfo['role'] == User::ROLE_SUPER_ADMIN): ?>
+                            <li class="divider"></li>
+                            <li><a href="<?=Router::url(array('controller' => 'Cities', 'action' => 'index', 'plugin' => 'Incidents'))?>"><i class="fa fa-folder fa-fw"></i> <?=__('Cities')?></a></li>
+                            <li><a href="<?=Router::url(array('controller' => 'Areas', 'action' => 'index', 'plugin' => 'Incidents'))?>"><i class="fa fa-file fa-fw"></i> <?=__('Areas')?></a></li>
+                            <li><a href="<?=Router::url(array('controller' => 'Teams', 'action' => 'index', 'plugin' => 'Incidents'))?>"><i class="fa fa-users fa-fw"></i> <?=__('Teams')?></a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?=Router::url(array('controller' => 'Referrals', 'action' => 'index', 'plugin' => 'Incidents'))?>"><i class="fa fa-file fa-fw"></i> <?=__('Referrals')?></a></li>
+                            <li><a href="<?=Router::url(array('controller' => 'SupportTypes', 'action' => 'index', 'plugin' => 'Incidents'))?>"><i class="fa fa-file fa-fw"></i> <?=__('Support Types')?></a></li>
+                        <?php endif; ?>
                         <li class="divider"></li>
                         <li><a href="<?=Router::url(array('controller' => 'Users', 'action' => 'logout', 'plugin' => 'Users'))?>"><i class="fa fa-sign-out fa-fw"></i> <?=__('Logout')?></a></li>
                     </ul>
@@ -44,7 +50,7 @@ use Cake\Controller\Component\AuthComponent;
         </div>
 
         <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse" aria-expanded="false">
+            <div class="sidebar-nav navbar-collapse collapse" aria-expanded="false">
                 <ul class="nav" id="side-menu">
                     <li>
                         <a href="<?=Router::url(['controller' => 'Incidents', 'action' => 'index', 'plugin' => 'Incidents'])?>"><i class="fa fa-exclamation-circle fa-fw"></i> <?=__('Incidents')?></a>

@@ -24,7 +24,7 @@
             <td>
                 <?= $user->has('team') ? $this->Html->link($user->team->title, ['plugin' => 'Incidents', 'controller' => 'Teams', 'action' => 'save', $user->team->id]) : '' ?>
             </td>
-            <td><?= h($user->role) ?></td>
+            <td><?= h(isset($roles[$user->role]) ? $roles[$user->role] : '') ?></td>
             <td><?= ($user->is_active ? __('Yes') : __('No')) ?></td>
             <td><?= h($user->last_login_date) ?></td>
             <td class="actions">
