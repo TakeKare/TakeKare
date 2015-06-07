@@ -56,10 +56,10 @@ use Users\Model\Entity\User;
                         <a href="<?=Router::url(['controller' => 'Incidents', 'action' => 'index', 'plugin' => 'Incidents'])?>"><i class="fa fa-exclamation-circle fa-fw"></i> <?=__('Incidents')?></a>
                     </li>
                     <li>
-                        <a href="<?=Router::url(['controller' => 'dashboards', 'action' => 'index'])?>"><i class="fa fa-dashboard fa-fw"></i> <?=__('Overview')?></a>
+                        <a href="<?=Router::url(['controller' => 'Dashboards', 'action' => 'live', 'plugin' => 'Incidents'])?>"><i class="fa fa-dashboard fa-fw"></i> <?=__('Live View')?></a>
                     </li>
                     <li>
-                        <a href="<?=Router::url(['controller' => 'dashboards', 'action' => 'reports'])?>"><i class="fa fa-bar-chart fa-fw"></i> <?=__(' Reporting')?></a>
+                        <a href="<?=Router::url(['controller' => 'Dashboards', 'action' => 'report', 'plugin' => 'Incidents'])?>"><i class="fa fa-bar-chart fa-fw"></i> <?=__(' Reporting')?></a>
                     </li>
                     <?php /*
             <li>

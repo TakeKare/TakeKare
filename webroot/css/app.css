@@ -127,3 +127,26 @@ input[type="number"] {
         display: block;
     }
 }
+
+#filter {}
+    #filter select.form-control {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+.paginator .pagination .pagination {
+    margin: 0 1em;
+    border-radius: 0;
+}
+.paginator > .pagination {
+    float: left;
+}
+.paginator > .pagination > li {
+    float: left;
+}
+.paginator p {
+    float: left;
+    margin: 20px 2em;
+    line-height: 1.42857;
+    padding: 9px 0;
+}

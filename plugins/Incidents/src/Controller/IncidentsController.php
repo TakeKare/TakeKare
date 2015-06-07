@@ -17,18 +17,30 @@ class IncidentsController extends AppController
         save as crudSave;
     }
 
+    use IncidentsFilterTrait;
+
     public function index()
     {
+        $conditions = $this->_getIncidentsFilter();
+
         $this->paginate = [
             'contain' => ['Areas.Cities'],
+            'conditions' => $conditions,
             'order' => ['Incidents.id' => 'DESC']
         ];
 
         $ages = Incident::ageList();
         $intoxications = Incident::intoxicationList();
         $receptivenesses = Incident::receptivenessList();
+        $referrals = $this->Incidents->Referrals->find('list')->order('pos');
+        $supportTypes = $this->Incidents->SupportTypes
+            ->find('list')
+            ->where(['parent_id IS' => null])
+            ->order('pos');
+        $areas = $this->Incidents->Areas->getHierarchyList();
+        $teams = $this->Incidents->Teams->find('list')->order('title');
 
-        $this->set(compact('ages', 'intoxications', 'receptivenesses'));
+        $this->set(compact('ages', 'intoxications', 'receptivenesses', 'referrals', 'supportTypes', 'teams', 'areas'));
 
         $this->crudIndex();
     }

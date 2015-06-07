@@ -7,6 +7,7 @@ Router::connect('/referrals/:action/*', ['controller' => 'Referrals', 'plugin' =
 Router::connect('/support_types/:action/*', ['controller' => 'SupportTypes', 'plugin' => 'Incidents']);
 Router::connect('/areas/:action/*', ['controller' => 'Areas', 'plugin' => 'Incidents']);
 Router::connect('/cities/:action/*', ['controller' => 'Cities', 'plugin' => 'Incidents']);
+Router::connect('/dashboards/:action/*', ['controller' => 'Dashboards', 'plugin' => 'Incidents']);
 
 Router::plugin('Incidents', function ($routes) {
     $routes->fallbacks();
