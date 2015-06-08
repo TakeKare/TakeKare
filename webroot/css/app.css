@@ -38,6 +38,11 @@
 
 }
 
+h1 {
+    margin-top: 0;
+    padding-top: 20px;
+}
+
 #entity-map {
     width: 600px;
     height: 300px;
