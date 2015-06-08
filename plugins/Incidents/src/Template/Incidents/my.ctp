@@ -14,8 +14,7 @@ $this->assign('title', __('My Incidents'));
         <?= $this->Form->postLink('<i class="fa fa-trash"></i>', ['action' => 'delete', $incident->id], ['confirm' => __('Are you sure you want to delete # {0}?', $incident->id), 'escape' => false, 'class' => 'del']) ?>
         <a href="<?= Router::url(['action' => 'register', $incident->id]) ?>" class="item">
             <span class="date"><?= $incident->created ?> <small>(<?=$incident->created->timeAgoInWords()?>)</small></span><br />
-            <strong><?= $this->Number->format($incident->males_number) ?></strong> <?= __('males'); ?>,
-            <strong><?= $this->Number->format($incident->females_number) ?></strong> <?= __('females'); ?>.
+            <i class="fa fa-male"></i> <strong><?= $this->Number->format($incident->males_number) ?></strong> <i class="fa fa-female"></i> <strong><?= $this->Number->format($incident->females_number) ?></strong><br />
             <?php if ($incident->has('referral')): ?>
                 <?= __('Referred By') ?>: <strong><?= $incident->referral->title ?></strong>.
             <?php endif; ?>
