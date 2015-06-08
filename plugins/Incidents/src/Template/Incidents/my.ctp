@@ -16,8 +16,11 @@ $this->assign('title', __('My Incidents'));
             <span class="date"><?= $incident->created ?> <small>(<?=$incident->created->timeAgoInWords()?>)</small></span><br />
             <strong><?= $this->Number->format($incident->males_number) ?></strong> <?= __('males'); ?>,
             <strong><?= $this->Number->format($incident->females_number) ?></strong> <?= __('females'); ?>.
-            <?php if($incident->has('support_type')): ?>
-                <?= __('Support provided') ?>: <strong><?= $incident->support_type->title ?></strong>
+            <?php if ($incident->has('referral')): ?>
+                <?= __('Referred By') ?>: <strong><?= $incident->referral->title ?></strong>.
+            <?php endif; ?>
+            <?php if ($incident->has('support_type')): ?>
+                <?= __('Support Provided') ?>: <strong><?= $incident->support_type->title ?></strong>.
             <?php endif; ?>
         </a>
     </li>

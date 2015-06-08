@@ -1,9 +1,12 @@
 <?php
 namespace Incidents\Controller;
 
+use Cake\Event\Event;
+use Cake\Network\Exception\InternalErrorException;
 use Incidents\Controller\AppController;
 use Incidents\Model\Entity\Incident;
 use Cake\ORM\TableRegistry;
+use Users\Model\Entity\User;
 
 /**
  * Incidents Controller
@@ -18,6 +21,25 @@ class IncidentsController extends AppController
     }
 
     use IncidentsFilterTrait;
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+
+        if ($this->Auth->user('role') == User::ROLE_TEAM_LEAD) {
+            if (!$this->Auth->user('team_id')) {
+                throw new InternalErrorException();
+            }
+
+            if ($this->request->action == 'index') {
+                return $this->redirect(['action' => 'my']);
+            }
+
+            if ($this->request->action == 'save') {
+                return $this->redirect(['action' => 'register']);
+            }
+        }
+    }
 
     public function index()
     {
@@ -66,8 +88,6 @@ class IncidentsController extends AppController
 
     public function my()
     {
-        // TODO: only show my team incidents
-
         $conditions = [];
         $contain = ['Areas.Cities'];
         $order = ['Incidents.id' => 'DESC'];
@@ -89,7 +109,11 @@ class IncidentsController extends AppController
 
     public function register($id = null)
     {
-        // TODO: only allow to edit/add my team incidents
+        if ($id
+            && $this->Auth->user('role') == User::ROLE_TEAM_LEAD
+            && !$this->Incidents->findByIdAndTeamId($id, $this->Auth->user('team_id'))->first()) {
+            throw new InternalErrorException();
+        }
 
         $this->listUrl = ['action' => 'my'];
 

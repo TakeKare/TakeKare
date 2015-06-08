@@ -14,14 +14,14 @@ $(function(){
 
 function getIncidentMarker(incident) {
     var params = {};
-    if (incident.referral != null) {
+    if (incident.support_type != null) {
         var iconParams = {
-            icon: incident.referral.icon.replace('fa-', ''),
+            icon: incident.support_type.icon.replace('fa-', ''),
             prefix: 'fa'
         };
 
-        if (incident.referral.color != '') {
-            iconParams.markerColor = incident.referral.color;
+        if (incident.support_type.color != '') {
+            iconParams.markerColor = incident.support_type.color;
         }
 
         params.icon = L.AwesomeMarkers.icon(iconParams);
@@ -36,22 +36,17 @@ function getIncidentMarker(incident) {
 
     var url = $('base').attr('href') + 'incidents/save/' + incident.id;
 
-    var popup = '<a href="' + url + '"><b>#' + incident.id + '</b> ' + (new Date(incident.created)).toLocaleDateString('en-AU', options) + '</a>';
-
-    if (incident.team != null) {
-        popup += '<br ><b>Team: </b>' + incident.team.title;
-    }
-
+    var popup = '<a href="' + url + '"><b>#' + incident.id + '</b> ' + (new Date(incident.created)).toLocaleDateString('en-AU', options) + ' by <strong>' + incident.team.title + '</strong></a>';
     var people = '';
     if (incident.males_number > 0) {
-        people += '<b>Males: </b>' + incident.males_number;
+        people += '<i class="fa fa-male"></i> ' + incident.males_number;
     }
     if (incident.females_number > 0) {
         if (people != '') {
-            people += '; ';
+            people += ' ';
         }
 
-        people += '<b>Females: </b>' + incident.females_number;
+        people += '<i class="fa fa-female"></i> ' + incident.females_number;
     }
     if (people != '') {
         popup += '<br />' + people;

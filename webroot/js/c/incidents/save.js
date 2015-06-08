@@ -1,5 +1,5 @@
 $(function(){
-    $('input[name="support_type_id"]').on('change', function() {
+    $('input[name="support_type_id"], select[name="support_type_id"]').on('change', function() {
         var $subs = $('#sub-support-type-id');
         var selected = $subs.val();
         $subs.empty();

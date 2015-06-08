@@ -11,6 +11,10 @@ return [
      */
     'debug' => true,
 
+    'Site' => [
+        'name' => 'Take Kare',
+    ],
+
     /**
      * Configure basic information about the application.
      *

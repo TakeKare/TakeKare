@@ -1,4 +1,4 @@
-<?php $this->assign('title', 'Reporting'); ?>
+<?php $this->assign('title', __('Report')); ?>
 
 <?= $this->element('incidents_filter') ?>
 
@@ -142,6 +142,7 @@
 <?php $this->append('script'); ?>
 <script type="text/javascript">
     var incidents = <?= json_encode($incidents); ?>;
+    var area = <?= json_encode($area); ?>;
 
     var lists = {
         'age': <?= json_encode($ages); ?>,

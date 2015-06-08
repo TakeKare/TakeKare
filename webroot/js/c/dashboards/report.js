@@ -46,24 +46,32 @@ $(function(){
     hours = hours.slice(12, 24).concat(hours.slice(0, 12));
     incidentsByHours = incidentsByHours.slice(12, 24).concat(incidentsByHours.slice(0, 12));
 
-    for (var i = 0; i < incidentsByHours.length; i++) {
-        if (incidentsByHours[i] > 0) {
-            break;
+    if (incidentsByHours.length > 0) {
+        var toShift = 0
+        for (var i = 0; i < incidentsByHours.length; i++) {
+            if (incidentsByHours[i] > 0) {
+                break;
+            }
+            toShift++;
         }
 
-        incidentsByHours.shift();
-        hours.shift();
-        i--;
-    }
-
-    for (var i = incidentsByHours.length - 1; i >=0; i--) {
-        if (incidentsByHours[i] > 0) {
-            break;
+        var toPop = 0;
+        for (var i = incidentsByHours.length - 1; i >= 0; i--) {
+            if (incidentsByHours[i] > 0) {
+                break;
+            }
+            toPop++;
         }
 
-        incidentsByHours.pop();
-        hours.pop();
-        i++
+        for (var i = 0; i < toShift; i++) {
+            incidentsByHours.shift();
+            hours.shift();
+        }
+
+        for (var i = 0; i < toPop; i++) {
+            incidentsByHours.pop();
+            hours.pop();
+        }
     }
 
     for (var list in lists) {
@@ -97,6 +105,9 @@ $(function(){
 
     if ($('#incidents-map').length > 0) {
         var map = L.map('incidents-map').setView([-33.869, 151.2094], 15);
+        if (area !== undefined && area != null) {
+            map.setView([area.lat, area.lng], 16);
+        }
         L.tileLayer('http://{s}.tiles.mapbox.com/v3/jt987.lp09bdfp/{z}/{x}/{y}.png', {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
             maxZoom: 18

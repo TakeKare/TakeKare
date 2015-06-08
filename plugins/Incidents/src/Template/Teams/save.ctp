@@ -15,7 +15,6 @@
                 echo $this->Form->hidden('id');
                 echo $this->Form->input('area_id', ['options' => $areasList]);
                 echo $this->Form->input('title');
-                echo $this->element('entity_map', ['enabled' => false, 'latInput' => 'last_lat', 'lngInput' => 'last_lng']);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>

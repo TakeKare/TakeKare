@@ -52,7 +52,7 @@ class UsersTable extends Table
             ->add('is_active', 'valid', ['rule' => 'boolean'])
             ->requirePresence('is_active', 'create')
             ->add('role', 'inList', [
-                'rule'    => ['inList', ['admin', 'author']],
+                'rule'    => ['inList', array_keys(User::roles())],
                 'message' => 'Please enter a valid role'
             ]);
 

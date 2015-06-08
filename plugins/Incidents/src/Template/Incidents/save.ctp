@@ -47,10 +47,10 @@
         <div class="col-md-1"><?= $this->Form->input('report'); ?></div>
     </fieldset>
     <fieldset class="row">
-        <div class="col-md-2"><?= $this->Form->input('water_given'); ?></div>
-        <div class="col-md-2"><?= $this->Form->input('chupa_chups_given', ['label' => __('Chupa Chups')]); ?></div>
-        <div class="col-md-2"><?= $this->Form->input('thongs_given', ['label' => __('Thongs')]); ?></div>
-        <div class="col-md-2"><?= $this->Form->input('vomit_bags_given', ['label' => __('Vomit Bags')]); ?></div>
+        <div class="col-md-2"><?= $this->Form->input('water_given', ['default' => 0]); ?></div>
+        <div class="col-md-2"><?= $this->Form->input('chupa_chups_given', ['label' => __('Chupa Chups'), 'default' => 0]); ?></div>
+        <div class="col-md-2"><?= $this->Form->input('thongs_given', ['label' => __('Thongs'), 'default' => 0]); ?></div>
+        <div class="col-md-2"><?= $this->Form->input('vomit_bags_given', ['label' => __('Vomit Bags'), 'default' => 0]); ?></div>
     </fieldset>
     <fieldset>
         <?= $this->element('entity_map'); ?>

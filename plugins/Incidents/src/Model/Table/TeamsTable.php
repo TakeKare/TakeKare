@@ -48,11 +48,7 @@ class TeamsTable extends Table
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
             ->requirePresence('title', 'create')
-            ->notEmpty('title')
-            ->add('last_lat', 'valid', ['rule' => 'decimal'])
-            ->allowEmpty('last_lat')
-            ->add('last_lng', 'valid', ['rule' => 'decimal'])
-            ->allowEmpty('last_lng');
+            ->notEmpty('title');
 
         return $validator;
     }

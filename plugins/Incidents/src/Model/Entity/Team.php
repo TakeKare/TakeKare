@@ -17,8 +17,6 @@ class Team extends Entity
     protected $_accessible = [
         'area_id' => true,
         'title' => true,
-        'last_lat' => true,
-        'last_lng' => true,
         'area' => true,
         'users' => true,
     ];

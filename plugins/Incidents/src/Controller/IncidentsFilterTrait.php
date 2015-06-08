@@ -15,16 +15,19 @@ trait IncidentsFilterTrait {
             'receptiveness'   => null,
             'referral_id'     => null,
             'support_type_id' => null,
+            'comment'         => '',
             'created_from'    => '',
             'created_to'      => '',
         ];
         $query = array_merge($query, $this->request->query);
 
+        $area = null;
         if (!empty($query['area_id'])) {
-            $where['Incidents.area_id IN'] = $query['area_id'];
+            $where['Incidents.area_id'] = $query['area_id'];
+            $area = $this->Incidents->Areas->get($query['area_id']);
         }
         if (!empty($query['team_id'])) {
-            $where['Incidents.team_id IN'] = $query['team_id'];
+            $where['Incidents.team_id'] = $query['team_id'];
         }
         if (!empty($query['age'])) {
             $where['age IN'] = $query['age'];
@@ -41,6 +44,12 @@ trait IncidentsFilterTrait {
         if (!empty($query['support_type_id'])) {
             $where['support_type_id IN'] = $query['support_type_id'];
         }
+        if (!empty($query['comment'])) {
+            $where['OR'] = [
+                'comment LIKE' => "%{$query['comment']}%",
+                'referral_comment LIKE' => "%{$query['comment']}%",
+            ];
+        }
         if (!empty($query['created_from'])) {
             $where['Incidents.created >='] = $query['created_from'];
         }
@@ -48,7 +57,7 @@ trait IncidentsFilterTrait {
             $where['Incidents.created <='] = $query['created_to'];
         }
 
-        $this->set(compact('query'));
+        $this->set(compact('query', 'area'));
 
         return $where;
     }

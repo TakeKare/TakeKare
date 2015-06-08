@@ -15,3 +15,7 @@
         <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>
+
+<?php $this->append('css', $this->Html->css('bootstrap-datetimepicker.min.css')); ?>
+<?php $this->append('script', $this->Html->script('moment.min')); ?>
+<?php $this->append('script', $this->Html->script('bootstrap-datetimepicker.min')); ?>
