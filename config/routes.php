@@ -48,7 +48,7 @@ Router::scope('/', function ($routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-    $routes->connect('/', ['controller' => 'cities', 'action' => 'index', 'plugin' => 'Incidents']);
+    $routes->connect('/', ['controller' => 'Incidents', 'action' => 'index', 'plugin' => 'Incidents']);
 
     //$routes->connect('/cities/:action/*', ['controller' => 'cities', 'plugin' => 'Areas']);
 
