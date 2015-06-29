@@ -16,7 +16,7 @@ class TeamsController extends AppController
 {
     use \SimpleCRUD\Controller\SimpleCRUDTrait {
         index as crudIndex;
-        save as _crudSave;
+        save as crudSave;
     }
 
     public function beforeFilter(Event $event)
