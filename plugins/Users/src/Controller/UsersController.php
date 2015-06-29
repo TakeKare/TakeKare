@@ -1,6 +1,7 @@
 <?php
 namespace Users\Controller;
 
+use Cake\Network\Exception\InternalErrorException;
 use Users\Controller\AppController;
 use Users\Model\Entity\User;
 use Cake\Event\Event;
@@ -29,6 +30,10 @@ class UsersController extends AppController
 
     public function index()
     {
+        if ($this->Auth->user('role') == User::ROLE_TEAM_LEAD) {
+            throw new InternalErrorException();
+        }
+
         $roles = User::roles();
 
         $this->set(compact('roles'));
@@ -42,11 +47,19 @@ class UsersController extends AppController
 
     public function save($id = null)
     {
+        if ($this->Auth->user('role') == User::ROLE_TEAM_LEAD) {
+            throw new InternalErrorException();
+        }
+
         $data = $id
             ? $this->Users->get($id)
             : $this->Users->newEntity();
 
         $roles = User::roles();
+        if ($this->Auth->user('role') != User::ROLE_SUPER_ADMIN) {
+            unset($roles[User::ROLE_SUPER_ADMIN]);
+        }
+
 
         if ($this->request->is(['post', 'put', 'patch'])) {
             $validate = 'default';

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 08, 2015 at 09:53 AM
+-- Generation Time: Jun 29, 2015 at 10:01 AM
 -- Server version: 5.5.40-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.9
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `areas` (
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `city_id` (`city_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `areas`
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `cities` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `cities`
@@ -287,11 +287,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 -- Dumping data for table `users`
 --
-
-INSERT INTO `users` (`id`, `team_id`, `name`, `email`, `password`, `hash`, `role`, `is_active`, `last_login_date`, `last_login_ip`, `created`, `modified`) VALUES
-(5, NULL, 'Andrej Griniuk', 'dext@modding.lt', '$2y$10$wFzBEXh/Pem0wCxpSNZhz.ZC.UOh8fMnG7RnSiiqo81M9vdhDJaJ.', '', 'super_admin', 1, '2015-06-08 18:58:30', '10.0.2.2', '0000-00-00 00:00:00', '2015-06-08 19:47:18'),
-(6, NULL, 'Test Admin', 'admin@test.com', '$2y$10$NydWydXvu6vbvphAtl12LecdTjeNbdqZM5vbu/VTb09.l6vsiax2i', '', 'admin', 1, '2015-06-08 19:48:57', '10.0.2.2', '2015-06-08 19:44:56', '2015-06-08 19:52:55'),
-(7, 1, 'Test Team', 'team@test.com', '$2y$10$h3UyJUvMdpE8rszDaeJMruTek.1MLJROKa49C5voR07NEY3w9digK', '', 'team_lead', 1, '2015-06-08 19:48:20', '10.0.2.2', '2015-06-08 19:45:18', '2015-06-08 19:53:10');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

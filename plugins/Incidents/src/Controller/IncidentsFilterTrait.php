@@ -16,7 +16,7 @@ trait IncidentsFilterTrait {
             'referral_id'     => null,
             'support_type_id' => null,
             'comment'         => '',
-            'created_from'    => '',
+            'created_from'    => date('Y-m-d H:i:s', strtotime('-2 days')),
             'created_to'      => '',
         ];
         $query = array_merge($query, $this->request->query);

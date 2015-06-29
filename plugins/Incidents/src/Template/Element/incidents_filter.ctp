@@ -2,7 +2,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a href="#filter" data-parent="#accordion" data-toggle="collapse" class="" aria-expanded="true"><?= __('Filter') ?></a>
+                <a href="#filter" data-parent="#accordion" data-toggle="collapse" aria-expanded="true"><?= __('Filter') ?></a>
             </h4>
         </div>
         <div class="panel-collapse collapse<?php if (!empty($this->request->query)) echo ' in'; ?>" id="filter" aria-expanded="true" style="">
