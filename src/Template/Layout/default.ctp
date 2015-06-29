@@ -29,7 +29,7 @@ use Users\Model\Entity\User;
                         <i class="fa fa-user fa-fw"></i> <?=$userInfo['name']?>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="<?=Router::url(array('controller' => 'Users', 'action' => 'profile', 'plugin' => 'Users'))?>"><i class="fa fa-user fa-fw"></i> <?=__('User Profile')?></a></li>
+                        <li><a href="<?=Router::url(array('controller' => 'Users', 'action' => 'profile', 'plugin' => 'Users'))?>"><i class="fa fa-user fa-fw"></i> <?=__('My Profile')?></a></li>
                         <?php if ($userInfo['role'] != User::ROLE_TEAM_LEAD): ?>
                         <li><a href="<?=Router::url(array('controller' => 'Users', 'action' => 'index', 'plugin' => 'Users'))?>"><i class="fa fa-users fa-fw"></i> <?=__('Users')?></a></li>
                         <?php endif; ?>

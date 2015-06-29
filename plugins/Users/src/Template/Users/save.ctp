@@ -17,7 +17,7 @@
         echo $this->Form->input('email');
         echo $this->Form->input('password', ['value' => '']);
         echo $this->Form->input('role');
-        echo $this->Form->input('is_active');
+        echo $this->Form->input('is_active', ['default' => 1]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
