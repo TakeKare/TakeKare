@@ -14,13 +14,4 @@ use Users\Model\Entity\User;
 class CitiesController extends AppController
 {
     use \SimpleCRUD\Controller\SimpleCRUDTrait;
-
-    public function beforeFilter(Event $event)
-    {
-        parent::beforeFilter($event);
-
-        if ($this->Auth->user('role') != User::ROLE_SUPER_ADMIN) {
-            throw new InternalErrorException();
-        }
-    }
 }
