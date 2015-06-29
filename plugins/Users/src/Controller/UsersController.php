@@ -127,7 +127,7 @@ class UsersController extends AppController
         if ($this->request->is(['post', 'put', 'patch'])) {
             $user->accessible('*', false);
             $user->accessible('password', true);
-            $data = $this->Users->patchEntity($user, $this->request->data, ['validate' => 'password_change']);
+            $data = $this->Users->patchEntity($user, $this->request->data, ['validate' => 'passwordChange']);
             if ($this->Users->save($data)) {
                 $this->Flash->success('The entry has been saved.');
 
